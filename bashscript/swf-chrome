@@ -1,0 +1,14 @@
+#! /usr/bin/python
+
+import sys, os
+
+if len(sys.argv) == 2:
+    fn = sys.argv[1]
+    if not ("/" in fn):
+        fn = os.getcwd() + "/" + fn
+    print(fn)
+    fn0 = fn.split("/")[-1]
+    print(fn0)
+    with open("/tmp/%s.html"%fn0, "w") as f:
+        f.write('<html><body><object classclass="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="800" height="640" class="mahjong_e" align="middle"><param name="allowScriptAccess" value="sameDomain" /><param name="allowFullScreen" value="false" /><param name="movie" value="%s" /><param name="quality" value="low" /><param name="wmode" value="opaque" /><param name="bgcolor" value="#73712d" />	<embed src="%s" quality="low" wmode="opaque" bgcolor="#73712d" width="800" height="640" name="mahjong_e" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object></body></html>'%(fn, fn))
+    os.system("chromium /tmp/%s.html"%fn0)
