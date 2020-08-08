@@ -207,7 +207,7 @@ TexLet g:Tex_ViewRuleComplete_dvi = ''
 "
 " this is the list of patterns which will be ignored from the compiler output.
 " This is a handy way of specifying which warnings/errors to ignore. This is a
-" list of patterns seperated by ''
+" list of patterns seperated by '¡'
 TexLet g:Tex_IgnoredWarnings =
 	\'Underfull'."\n".
 	\'Overfull'."\n".
