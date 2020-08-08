@@ -1,0 +1,13 @@
+
+set ruler
+set nu
+syntax on
+set cursorline
+set hlsearch
+set nocompatible
+set backspace=indent,eol,start
+
+command! Reloadrc :source ~/bashscript/vinit.vim
+noremap <C-R> :Reloadrc<C-R>
+source ~/bashscript/vinit.vim
+
