@@ -1,0 +1,50 @@
+background              no
+out_to_console 	        yes
+out_to_x	        no
+update_interval	        1
+total_run_times	        0
+short_units	        yes
+max_text_width          0
+if_up_strictness        address
+override_utf8_locale    no
+cpu_avg_samples         2
+
+##Configuration 
+
+TEXT
+
+[
+
+  {
+    "full_text": " ${battery_percent BAT0}%",
+    "min_width": 55,
+    "align": "center",
+    "color":
+     # ${if_match ${battery_percent BAT0}>=95}
+     #   "\#77BA79"
+     # ${else}
+        ${if_match ${battery_percent BAT0}>=20}
+          "\#FFFFFF"
+        ${else}
+          "\#E84F4F"
+        ${endif}
+     # ${endif}
+  },
+  {
+    "full_text": "${exec head ~/duration}",
+    "min_width": 30,
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+  {
+    "full_text": "${time %a, %d. %b %I:%M %P}",
+    "min_width": 135,
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+  {
+    "full_text": ""
+  }
+
+
+],
