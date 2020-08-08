@@ -1,0 +1,40 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsrefs}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{xypic}
+\usepackage{color}
+\definecolor{background}{RGB}{204,232,207}
+\pagecolor{background}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{dfn}{Definition}
+
+\newcommand{\noyaux}[1]{\operatorname{ker}{#1}}
+\newcommand{\spa}{\operatorname{Spa}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\opn}[1]{\operatorname{#1}}
+\newcommand{\dirlim}[1]{\underset{#1}{\underrightarrow{\operatorname{lim}}}}
+\newcommand{\invlim}[1]{\underset{#1}{\underleftarrow{\operatorname{lim}}}}
+
+\begin{document}
+\author{lz}
+\title{ <++>}
+\maketitle
+<++>
+\begin{bibdiv}
+\begin{biblist}
+\end{biblist}
+\end{bibdiv}
+\end{document}
