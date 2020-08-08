@@ -1,0 +1,16 @@
+!XTerm*faceName: Misc Fixed
+!XTerm*faceSize: 10
+XTerm*faceName: Monaco
+XTerm*faceSize: 14
+XTerm*foreground:#00FFFF
+XTerm*background:black
+uxterm*foreground:#00FFFF
+uxterm*background:black
+rxvt*foreground:gray
+rxvt*background:black
+XTerm*metaSendsEscape:true
+XTerm*eightBitInput:false
+XTerm*VT100.Translations: #override \n\
+Ctrl <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+<BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+Ctrl <KeyPress> P: print() \n
