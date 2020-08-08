@@ -1,0 +1,96 @@
+background              no
+out_to_console 	        yes
+out_to_x	        no
+update_interval	        1
+total_run_times	        0
+short_units	        yes
+max_text_width          0
+if_up_strictness        address
+override_utf8_locale    no
+cpu_avg_samples         2
+
+##Configuration 
+
+TEXT
+
+[
+
+ {
+    "full_text": " ${fs_free /opt/lz} ${acpitemp}℃ ",
+    "min_width": 90,
+    "align": "center",
+    "color":
+      ${if_match ${acpitemp}>80}
+        "\#E84F4F"
+      ${else}
+        "\#FFFFFF"
+      ${endif}
+  },
+
+
+  {
+    "full_text": " ${uptime_short}",
+    "min_width": 70,
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+
+  {
+    "full_text":
+      ${if_existing /proc/net/route wlp2s0b1}
+        " ${wireless_essid wlp2s0b1}[${wireless_link_qual_perc wlp2s0b1}%] ↓ ${downspeed wlp2s0b1}/s ↑ ${upspeed wlp2s0b1}/s"
+      ${else}
+        "↓ ${downspeed enp0s3}/s ↑ ${upspeed enp0s3}/s"
+      ${endif},
+    "min_width":
+      ${if_existing /proc/net/route wlp2s0b1}
+        270
+      ${else}
+        140
+      ${endif},
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+
+  #{
+  #  "full_text": "♪ ${exec amixer get Master | grep "Front Left:" | awk '{print $5}' | sed 's:^.\(.*\).$:\1:'}",
+  #  "min_width": 55,
+  #  "align": "center",
+  #  "color": "\#4E9FB1"
+  #},
+
+  { 
+     "full_text": " ${exec amixer sget 'Master' | grep 'Mono:' | cut -c22-24 | sed '/^$/d'} ",
+     "min_width": 55,
+     "align": "center",
+     "color": "\#FFFFFF"
+  },
+
+  {
+    "full_text": " ${battery_percent BAT0}%",
+    "min_width": 55,
+    "align": "center",
+    "color":
+     # ${if_match ${battery_percent BAT0}>=95}
+     #   "\#77BA79"
+     # ${else}
+        ${if_match ${battery_percent BAT0}>=20}
+          "\#FFFFFF"
+        ${else}
+          "\#E84F4F"
+        ${endif}
+     # ${endif}
+  },
+
+  {
+    "full_text": "${time %a, %d. %b %I:%M %P}",
+    "min_width": 135,
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+  {
+    "full_text": ""
+  }
+
+
+],
