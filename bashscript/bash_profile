@@ -1,0 +1,2 @@
+source ~/bashscript/binit.sh
+alias i3="gox --i3"
