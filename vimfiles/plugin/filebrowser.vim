@@ -125,7 +125,7 @@ function! <SID>FB_SetHighlighting()
 		syn match browseSortBy      "^\" Sorted by .*$"  contains=browseSuffixInfo
 		syn match browseSuffixInfo  "(.*)$"  contained
 		syn match browseFilter      "^\" Not Showing:.*$"
-		syn match browseFiletime    "\d\+$"
+		syn match browseFiletime    "«\d\+$"
 
 		"hi def link browseSynopsis    PreProc
 		hi def link browseSynopsis    Special
