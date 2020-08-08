@@ -1,0 +1,101 @@
+conky.config = {
+    background             = false,
+    out_to_console 	       = true,
+    out_to_x	           = false,
+    update_interval	       = 1,
+    total_run_times	       = 0,
+    short_units	           = true,
+    max_text_width         = 0,
+    if_up_strictness       = 'address',
+    override_utf8_locale   = false,
+    cpu_avg_samples        = 2,
+}
+
+conky.text = [[
+ [
+ {
+    "full_text": "${exec python /home/lz/bashscript/diskstat.py}",
+    "min_width": 90,
+    "align": "center",
+    "color": "\#FFFFFF"
+ },
+
+ {
+    "full_text": "${fs_free /home/lz} ${acpitemp}℃ ",
+    "min_width": 90,
+    "align": "center",
+    "color":
+      ${if_match ${acpitemp}>80}
+        "\#E84F4F"
+      ${else}
+        "\#FFFFFF"
+      ${endif}
+  },
+
+
+  {
+    "full_text": "${uptime_short}",
+    "min_width": 70,
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+
+  {
+    "full_text":
+      ${if_existing /proc/net/route wlp2s0}
+        "${wireless_essid wlp2s0}[${wireless_link_qual_perc wlp2s0}%] ↓ ${downspeed wlp2s0}/s ↑ ${upspeed wlp2s0}/s"
+      ${else}
+        "↓ ${downspeed enp0s17}/s ↑ ${upspeed enp0s17}/s"
+      ${endif},
+    "min_width":
+      ${if_existing /proc/net/route wlp2s0}
+        270
+      ${else}
+        140
+      ${endif},
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+
+  #{
+  #  "full_text": "♪ ${exec amixer get Master | grep "Front Left:" | awk '{print $5}' | sed 's:^.\(.*\).$:\1:'}",
+  #  "min_width": 55,
+  #  "align": "center",
+  #  "color": "\#4E9FB1"
+  #},
+
+  { 
+     "full_text": "${exec amixer sget 'Master' | grep 'Mono:' | cut -c22-24 | sed '/^$/d'} ",
+     "min_width": 55,
+     "align": "center",
+     "color": "\#FFFFFF"
+  },
+
+  {
+    "full_text": "${battery_percent BAT0}%",
+    "min_width": 55,
+    "align": "center",
+    "color":
+     # ${if_match ${battery_percent BAT0}>=95}
+     #   "\#77BA79"
+     # ${else}
+        ${if_match ${battery_percent BAT0}>=20}
+          "\#FFFFFF"
+        ${else}
+          "\#E84F4F"
+        ${endif}
+     # ${endif}
+  },
+
+  {
+    "full_text": "${time %a, %d. %b %I:%M %P}",
+    "min_width": 135,
+    "align": "center",
+    "color": "\#FFFFFF"
+  },
+  {
+    "full_text": ""
+  }
+],
+
+]]
