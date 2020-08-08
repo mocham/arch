@@ -283,7 +283,7 @@ exe s:pA5.'Join                     <plug>\Join '
 exe s:pA5.'pitchfork                <plug>\pitchfork '
 " }}}
 " {{{ nBinaryRel2
-let s:pA5a = s:pA."n&BinaryRel2."  "TODO: dorobi logarytmy
+let s:pA5a = s:pA."n&BinaryRel2."  "TODO: dorobiæ logarytmy
 exe s:pA5a.'ngtr                    <plug>\ngtr '
 exe s:pA5a.'ngeqslant               <plug>\ngeqslant '
 exe s:pA5a.'ngeq                    <plug>\ngeq '
